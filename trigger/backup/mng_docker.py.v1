@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+import docker
+client = docker.from_env()
+
+dks = { 'nginx':{'ports':{'80/tcp':3333}, 'environment':None},
+        'httpd':{'ports':{'80/tcp':3399}, 'environment':None},
+        'mysql':{'ports':{'3306/tcp':3388}, 'environment':["MYSQL_ROOT_PASSWORD=123456"]}}
+
+def pul_images(dks):
+    images_list=[]
+    for img in img_latest(dks):
+        try:
+            images_list.append(client.images.pull(img).short_id)
+        except Exception as e:
+            print(str(e))
+    return images_list 
+		
+def crt_ctnrs(dks):
+    ctnrs_list=[]
+    for img in img_latest(dks):
+        try:
+            ctnrs_list.append(client.containers.create(img, detach=True,\
+                    ports=dks[img[:img.index(':')]]['ports'],\
+                        environment=dks[img[:img.index(':')]]['environment']))
+        except Exception as e:
+            print(str(e))
+    return ctnrs_list
+
+def run_ctnrs(dks):
+    """run(image, command=None, **kwargs)"""
+    ctnrs_list=[]
+    for img in img_latest(dks):
+        try:
+            ctnrs_list.append(client.containers.run(img, detach=True,\
+                        ports=dks[img[:img.index(':')]]['ports'],\
+                        environment=dks[img[:img.index(':')]]['environment']))
+        except Exception as e:
+            print(str(e))
+    return ctnrs_list
+
+def stp_ctnrs(ctnrs_list):
+    for ctnr in ctnrs_list:
+        ctnr.stop()
+def start_ctnrs(ctnrs_list):
+    for ctnr in ctnrs_list:
+        try:
+            ctnr.start()
+        except Exception as e:
+            print(str(e))
+
+def get_id(dk_list):
+    return [dk.short_id for dk in dk_list]
+
+def img_latest(dks):
+    return[img+':latest' if not ':' in img else img for img in dks]
+
+
+if __name__ == '__main__':
+    from pprint import pprint
+    #ls = pul_images(dks); pprint(ls)
+    #print(run_ctnrs(dks))
+    #ctlist=crt_ctnrs(dks); pprint(get_id(ctlist)); start_ctnrs(ctlist)
+    ip_ports = [["127.0.0.1", "8888"], ["127.0.0.1", "8888"], ["127.0.0.1", "8888"]]

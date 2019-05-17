@@ -1,0 +1,52 @@
+-- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: guest
+-- ------------------------------------------------------
+-- Server version	10.1.38-MariaDB-0ubuntu0.18.04.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `A_strategy`
+--
+
+DROP TABLE IF EXISTS `A_strategy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `A_strategy` (
+  `IP` text,
+  `flag` int(11) DEFAULT NULL,
+  `PORT` int(5) DEFAULT NULL,
+  `SRV` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `A_strategy`
+--
+
+LOCK TABLES `A_strategy` WRITE;
+/*!40000 ALTER TABLE `A_strategy` DISABLE KEYS */;
+INSERT INTO `A_strategy` VALUES ('192.168.123.25',1,0,'None'),('192.168.123.30',1,0,'None'),('192.168.123.29',2,1675,'None'),('192.168.123.28',2,2071,'None'),('192.168.123.31',2,1778,'None'),('192.168.123.28',2,1066,'None'),('192.168.123.29',2,1673,'None'),('192.168.123.27',2,1226,'None'),('192.168.123.31',2,1395,'None'),('192.168.123.26',2,1328,'None'),('192.168.123.31',2,1116,'None'),('192.168.123.28',2,2027,'None'),('192.168.123.26',2,1531,'None'),('192.168.123.27',3,1688,'nginx'),('192.168.123.27',3,1447,'httpd'),('192.168.123.29',3,1354,'mysql'),('192.168.123.26',3,1072,'mysql');
+/*!40000 ALTER TABLE `A_strategy` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-05-16  9:47:01
