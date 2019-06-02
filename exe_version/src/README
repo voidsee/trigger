@@ -1,0 +1,35 @@
+
+Welcome to trigger 1.0.1! This is offline help utility. 
+command:
+    [?]
+        For this help file.
+
+    [ls]
+        List all functional commands.
+
+    [cls]
+        Clear the current screen.
+
+    ----------------------------------------
+    [start]
+        Generate strategy table for next
+        stage, the table include [ip], 
+        [ip port], [ip port loophole] 
+        three types.
+
+    [deploy]
+        Monitor the mirror port, if ip 
+        or ip port matches the items in 
+        the strategy table, construct 
+        packet and reply. 
+
+        This should be after the [start] 
+        operation.
+
+    [assess]
+        Assess security inspection report 
+        by strategy table.
+
+        This should be after the [deploy] 
+        operation.
+
